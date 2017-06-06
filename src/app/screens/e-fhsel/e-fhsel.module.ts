@@ -1,9 +1,9 @@
-import { NgModule } from '@angular/core';
+import {NgModule} from '@angular/core';
 import {SharedModule} from '../../shared/shared.module';
 import {FormsModule} from '@angular/forms';
 
-import { EFhselRoutingModule } from './e-fhsel-routing.module';
-import { EFhselComponent } from './e-fhsel/e-fhsel.component';
+import {EFhselRoutingModule} from './e-fhsel-routing.module';
+import {EFhselComponent} from './e-fhsel/e-fhsel.component';
 
 @NgModule({
   imports: [
@@ -13,4 +13,5 @@ import { EFhselComponent } from './e-fhsel/e-fhsel.component';
   ],
   declarations: [EFhselComponent]
 })
-export class EFhselModule { }
+export class EFhselModule {
+}

@@ -1,11 +1,10 @@
-import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
-import {FormsModule} from '@angular/forms';
-import {HttpModule} from '@angular/http';
-import {SharedModule} from './shared/shared.module';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { SharedModule } from './shared/shared.module';
 
-import {AppComponent} from './app.component';
-import {routing} from './app.routes';
+import { AppComponent } from './app.component';
+import { routing } from './app.routes';
 
 @NgModule({
   declarations: [
@@ -14,7 +13,6 @@ import {routing} from './app.routes';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule,
     SharedModule,
     routing
   ],

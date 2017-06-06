@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {AuthService} from '../../../shared/authorization/authorization.services';
 
 @Component({
   selector: 'imx-e-fhsel',
@@ -8,7 +9,7 @@ import {Component, OnInit} from '@angular/core';
 export class EFhselComponent implements OnInit {
   searchForm = {};
 
-  constructor() {
+  constructor(private authService: AuthService) {
   }
 
   ngOnInit() {
