@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'imx-e-fhsel',
@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./e-fhsel.component.css']
 })
 export class EFhselComponent implements OnInit {
+  searchForm = {};
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }
 
+  doSearch() {
+    console.log(this.searchForm);
+  }
 }
