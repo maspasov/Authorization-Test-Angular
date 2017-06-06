@@ -1,8 +1,7 @@
 import { Routes, RouterModule } from '@angular/router';
-import {EDashboardModule} from './shared/e-dashboard/e-dashboard.module';
 
 const APP_ROUTES_PROVIDERS: Routes = [
-    { path: '**', redirectTo: 'e_dashboard', pathMatch: 'full' },
-    { path: 'e_dashboard', component: EDashboardModule }
+    { path: '**', redirectTo: 'e_fhsel', pathMatch: 'full' },
+    { path: 'e_fhsel', loadChildren: 'app/screens/e-fhsel/e-fhsel.module#EFhselModule' }
 ];
 export const routing = RouterModule.forRoot(APP_ROUTES_PROVIDERS);
