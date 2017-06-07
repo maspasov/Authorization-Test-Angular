@@ -2,34 +2,50 @@ import { Injectable } from '@angular/core';
 
 import { User } from './user.interface';
 import { Router } from '@angular/router';
+import { Http, Headers } from '@angular/http';
 
-declare var firebase: any;
+import 'rxjs/add/operator/map';
+
+export const contentHeaders = new Headers();
+contentHeaders.append('X-AUTH-TOKEN', '');
+contentHeaders.append('Accept-Language', 'en'); // TODO dinamic en
 
 @Injectable()
 export class AuthService {
-  thing: string;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private http: Http) {}
 
-  signupUser(user: User) {
-    firebase.auth().createUserWithEmailAndPassword(user.email, user.password)
-      .catch(function (error) {
-        console.log(error);
-      });
-  }
+  signinUser() {
 
-  signinUser(/*user: User*/) {
-   // TODO
-   debugger;
+    localStorage.removeItem('id_token'); // TODO del
+
+    this.http.post(
+      'http://bull.codixfr.private:8080/v9_be_stable/login', // TODO import in const object
+      { userName: 'imx', userPass: 'crx', userLang: 'en' }, // get from UI form
+      { headers: contentHeaders }
+    )
+      .map((res) => res.headers.get('x-auth-token'))
+      .subscribe(
+        token => {
+          // debugger;
+          // TODO set token in heaers
+          localStorage.setItem('id_token', token);
+          // TODO navigate to some state
+          // this.router.navigate(['home']);
+        },
+        error => {
+          // TODO popup error in modal
+          console.log(error.text());
+        }
+      );
   }
 
   logout() {
-    firebase.auth().signOut();
-    this.router.navigate(['/signin']);
+    // TODO call logout api method
   }
 
   isAuthenticated() {
-    var user = firebase.auth().currentUser;
+    const user = localStorage.getItem('id_token');;
 
     if (user) {
       return true;

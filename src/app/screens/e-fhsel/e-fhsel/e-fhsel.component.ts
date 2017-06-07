@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {AuthService} from '../../../shared/authorization/authorization.services';
+import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../../shared/authorization/authorization.services'; // TODO remove
 
 @Component({
   selector: 'imx-e-fhsel',
@@ -10,6 +10,7 @@ export class EFhselComponent implements OnInit {
   searchForm = {};
 
   constructor(private authService: AuthService) {
+    this.authService.signinUser(); // TODO remove
   }
 
   ngOnInit() {
