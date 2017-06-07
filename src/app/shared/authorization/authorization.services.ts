@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers } from '@angular/http';
+import { Headers, Http, BaseRequestOptions } from '@angular/http';
 import { CacheService, CacheStoragesEnum } from 'ng2-cache/ng2-cache';
 import { User } from './user.interface';
 import { AppSettings } from '../../app.settings';
 import { StateHelper } from '../services/state.helper';
-
 
 import 'rxjs/add/operator/map';
 
@@ -13,9 +12,11 @@ contentHeaders.append('X-AUTH-TOKEN', '');
 contentHeaders.append('Accept-Language', 'en'); // TODO dinamic en
 
 @Injectable()
-export class AuthService {
+export class AuthService extends BaseRequestOptions {
 
-  constructor(private http: Http, private cacheService: CacheService, private stateHelper: StateHelper) {}
+  constructor(private http: Http, private cacheService: CacheService, private stateHelper: StateHelper) {
+    super();
+  }
 
   signinUser() {
     this.http.post(
@@ -26,11 +27,9 @@ export class AuthService {
       .map((res) => res.headers.get('x-auth-token'))
       .subscribe(
       token => {
-        // TODO set token in heaers
+        // TODO set token in headers
+        this.headers.append('X-AUTH-TOKEN', token);
         this.cacheService.set(AppSettings.USER_SESSION_KEY, token, AppSettings.USER_SESSION_EXPIRE_TIME);
-        /**
-         * TODO merge with authorization.component.ts line 19
-         */
         this.stateHelper.goToProtectedState();
       },
       error => {
