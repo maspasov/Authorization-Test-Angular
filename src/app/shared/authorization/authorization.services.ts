@@ -3,6 +3,7 @@ import { User } from './user.interface';
 import { Router } from '@angular/router';
 import { Http, Headers } from '@angular/http';
 import { AppSettings } from '../../app.settings';
+import { CacheService, CacheStoragesEnum } from 'ng2-cache/ng2-cache';
 
 import 'rxjs/add/operator/map';
 
@@ -13,21 +14,22 @@ contentHeaders.append('Accept-Language', 'en'); // TODO dinamic en
 @Injectable()
 export class AuthService {
 
-  constructor(private router: Router, private http: Http) { }
+  constructor(private router: Router, private http: Http, private cacheService: CacheService) {}
 
   signinUser() {
 
-    localStorage.removeItem('id_token'); // TODO del
+    this.cacheService.removeTag(AppSettings.USER_SESSION_KEY); // TODO remove
+
     this.http.post(
-      `{AppSettings.API_ENDPOINT}login`,
+      `${AppSettings.API_ENDPOINT}login`,
       { userName: 'imx', userPass: 'crx', userLang: 'en' }, // get from UI form
       { headers: contentHeaders }
     )
-      .map((res) => res.headers.get('x-auth-token'))
+      .map((res) => {res.headers.get('x-auth-token')})
       .subscribe(
       token => {
         // TODO set token in heaers
-        localStorage.setItem('id_token', token);
+        this.cacheService.set(AppSettings.USER_SESSION_KEY, token, AppSettings.USER_SESSION_EXPIRE_TIME);
         this.router.navigate([this.router.url]);
       },
       error => {
@@ -42,12 +44,6 @@ export class AuthService {
   }
 
   isAuthenticated() {
-    const user = localStorage.getItem('id_token');;
-
-    if (user) {
-      return true;
-    } else {
-      return false;
-    }
+    return this.cacheService.exists(AppSettings.USER_SESSION_KEY);
   }
 }
