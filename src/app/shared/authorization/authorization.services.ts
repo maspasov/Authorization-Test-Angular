@@ -25,7 +25,7 @@ export class AuthService {
       { userName: 'imx', userPass: 'crx', userLang: 'en' }, // get from UI form
       { headers: contentHeaders }
     )
-      .map((res) => {res.headers.get('x-auth-token')})
+      .map((res) => res.headers.get('x-auth-token'))
       .subscribe(
       token => {
         // TODO set token in heaers
