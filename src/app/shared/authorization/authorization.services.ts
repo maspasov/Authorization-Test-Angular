@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-
 import { User } from './user.interface';
 import { Router } from '@angular/router';
 import { Http, Headers } from '@angular/http';
@@ -13,12 +12,11 @@ contentHeaders.append('Accept-Language', 'en'); // TODO dinamic en
 @Injectable()
 export class AuthService {
 
-  constructor(private router: Router, private http: Http) {}
+  constructor(private router: Router, private http: Http) { }
 
   signinUser() {
 
     localStorage.removeItem('id_token'); // TODO del
-
     this.http.post(
       'http://bull.codixfr.private:8080/v9_be_stable/login', // TODO import in const object
       { userName: 'imx', userPass: 'crx', userLang: 'en' }, // get from UI form
@@ -26,17 +24,15 @@ export class AuthService {
     )
       .map((res) => res.headers.get('x-auth-token'))
       .subscribe(
-        token => {
-          // debugger;
-          // TODO set token in heaers
-          localStorage.setItem('id_token', token);
-          // TODO navigate to some state
-          // this.router.navigate(['home']);
-        },
-        error => {
-          // TODO popup error in modal
-          console.log(error.text());
-        }
+      token => {
+        // TODO set token in heaers
+        localStorage.setItem('id_token', token);
+        this.router.navigate([this.router.url]);
+      },
+      error => {
+        // TODO popup error in modal
+        console.log(error.text());
+      }
       );
   }
 

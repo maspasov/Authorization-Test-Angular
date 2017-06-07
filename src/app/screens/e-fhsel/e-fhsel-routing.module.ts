@@ -1,9 +1,9 @@
-import {NgModule} from '@angular/core';
-import {Routes, RouterModule} from '@angular/router';
-import {EFhselComponent} from './e-fhsel/e-fhsel.component';
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { EFhselComponent } from './e-fhsel/e-fhsel.component';
 
 const routes: Routes = [
-  {path: '', component: EFhselComponent}
+  { path: '', component: EFhselComponent }
 ];
 
 @NgModule({

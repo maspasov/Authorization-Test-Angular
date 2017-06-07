@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from './authorization.services';
 
 @Component({
   selector: 'imx-authorization',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AuthorizationComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authService: AuthService) {
+    this.authService.signinUser();
+  }
 
   ngOnInit() {
   }
