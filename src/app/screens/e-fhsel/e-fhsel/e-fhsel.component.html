@@ -149,12 +149,12 @@
   </div>
 </div>
 
-<p-dataTable [value]="search" [rows]="10" [scrollable]="true" [lazy]="true" (onLazyLoad)="loadData($event)">
-  <p-column field="vin" header="iMX case reference" sortable="true"></p-column>
-  <p-column field="year" header="Case reference" sortable="true"></p-column>
-  <p-column field="brand" header="Superior Ref." sortable="true"></p-column>
-  <p-column field="color" header="Case category" sortable="true"></p-column>
-  <p-column field="one" header="Curr." sortable="true"></p-column>
-  <p-column field="two" header="Client" sortable="true"></p-column>
-  <p-column field="three" header="Debtor" sortable="true"></p-column>
+<p-dataTable [value]="search" scrollHeight="200px" [scrollable]="true" [lazy]="true" (onLazyLoad)="loadData($event)">
+  <p-column field="caseRef" header="iMX case reference" sortable="true"></p-column>
+  <p-column field="extCaseRef" header="Case reference" sortable="true"></p-column>
+  <p-column field="parentCaseId" header="Superior Ref." sortable="true"></p-column>
+  <p-column field="displayCaseCateg" header="Case category" sortable="true"></p-column>
+  <p-column field="currency" header="Curr." sortable="true"></p-column>
+  <p-column field="party1Name" header="Client" sortable="true"></p-column>
+  <p-column field="party2Name" header="Debtor" sortable="true"></p-column>
 </p-dataTable>

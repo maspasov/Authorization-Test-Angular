@@ -18,14 +18,21 @@ export class EFhselComponent implements OnInit {
 
   doSearch() {
     console.log(this.searchForm);
+    this.loadData({});
   }
 
   loadData(event: any) {
     console.log(event);
-    this.carService.getCarsSmall()
-      .subscribe(
-        (data: any) => this.search = data,
-        (error) => console.log(error)
-      );
+    this.carService.putData(this.searchForm).subscribe(
+      (data: any) => {
+        this.carService.getData(`${data.headers.get('location')}?page=1&size=100`).subscribe(
+          (result: any) => {
+            this.search = result.content;
+          },
+          (error) => console.log(error)
+        );
+      },
+      (error) => console.log(error)
+    );
   }
 }

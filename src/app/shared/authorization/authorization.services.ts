@@ -20,7 +20,7 @@ export class AuthService extends BaseRequestOptions {
 
   signinUser() {
     this.http.post(
-      `${AppSettings.API_ENDPOINT}login`,
+      `${AppSettings.API_ENDPOINT}/login`,
       { userName: 'imx', userPass: 'crx', userLang: 'en' }, // get from UI form
       { headers: contentHeaders }
     )
