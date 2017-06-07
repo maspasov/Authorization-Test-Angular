@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { User } from './user.interface';
 import { Router } from '@angular/router';
 import { Http, Headers } from '@angular/http';
+import { AppSettings } from '../../app.settings';
 
 import 'rxjs/add/operator/map';
 
@@ -18,7 +19,7 @@ export class AuthService {
 
     localStorage.removeItem('id_token'); // TODO del
     this.http.post(
-      'http://bull.codixfr.private:8080/v9_be_stable/login', // TODO import in const object
+      `{AppSettings.API_ENDPOINT}login`,
       { userName: 'imx', userPass: 'crx', userLang: 'en' }, // get from UI form
       { headers: contentHeaders }
     )
