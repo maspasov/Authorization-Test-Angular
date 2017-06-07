@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from './authorization.services';
+import { StateHelper } from '../services/state.helper';
 
 @Component({
   selector: 'imx-authorization',
@@ -8,11 +9,13 @@ import { AuthService } from './authorization.services';
 })
 export class AuthorizationComponent implements OnInit {
 
-  constructor(private authService: AuthService) {
-    this.authService.signinUser();
+  constructor(private authService: AuthService, private stateHelper: StateHelper) {
+
   }
 
   ngOnInit() {
+    if(this.authService.isAuthenticated()) {
+      this.stateHelper.goToProtectedState();
+    }
   }
-
 }

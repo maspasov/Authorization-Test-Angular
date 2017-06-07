@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { User } from './user.interface';
-import { Router } from '@angular/router';
 import { Http, Headers } from '@angular/http';
-import { AppSettings } from '../../app.settings';
 import { CacheService, CacheStoragesEnum } from 'ng2-cache/ng2-cache';
+import { User } from './user.interface';
+import { AppSettings } from '../../app.settings';
+import { StateHelper } from '../services/state.helper';
+
 
 import 'rxjs/add/operator/map';
 
@@ -14,12 +15,9 @@ contentHeaders.append('Accept-Language', 'en'); // TODO dinamic en
 @Injectable()
 export class AuthService {
 
-  constructor(private router: Router, private http: Http, private cacheService: CacheService) {}
+  constructor(private http: Http, private cacheService: CacheService, private stateHelper: StateHelper) {}
 
   signinUser() {
-
-    this.cacheService.removeTag(AppSettings.USER_SESSION_KEY); // TODO remove
-
     this.http.post(
       `${AppSettings.API_ENDPOINT}login`,
       { userName: 'imx', userPass: 'crx', userLang: 'en' }, // get from UI form
@@ -30,7 +28,10 @@ export class AuthService {
       token => {
         // TODO set token in heaers
         this.cacheService.set(AppSettings.USER_SESSION_KEY, token, AppSettings.USER_SESSION_EXPIRE_TIME);
-        this.router.navigate([this.router.url]);
+        /**
+         * TODO merge with authorization.component.ts line 19
+         */
+        this.stateHelper.goToProtectedState();
       },
       error => {
         // TODO popup error in modal
