@@ -149,7 +149,7 @@
   </div>
 </div>
 
-<p-dataTable [value]="search" [rows]="10" [scrollable]="true" [lazy]="true" (onLazyLoad)="loadCarsLazy($event)">
+<p-dataTable [value]="search" [rows]="10" [scrollable]="true" [lazy]="true" (onLazyLoad)="loadData($event)">
   <p-column field="vin" header="iMX case reference" sortable="true"></p-column>
   <p-column field="year" header="Case reference" sortable="true"></p-column>
   <p-column field="brand" header="Superior Ref." sortable="true"></p-column>

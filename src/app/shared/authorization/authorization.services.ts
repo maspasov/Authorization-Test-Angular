@@ -1,7 +1,10 @@
 import { Injectable } from '@angular/core';
-import { User } from './user.interface';
-import { Router } from '@angular/router';
 import { Http, Headers } from '@angular/http';
+import { CacheService, CacheStoragesEnum } from 'ng2-cache/ng2-cache';
+import { User } from './user.interface';
+import { AppSettings } from '../../app.settings';
+import { StateHelper } from '../services/state.helper';
+
 
 import 'rxjs/add/operator/map';
 
@@ -12,13 +15,11 @@ contentHeaders.append('Accept-Language', 'en'); // TODO dinamic en
 @Injectable()
 export class AuthService {
 
-  constructor(private router: Router, private http: Http) { }
+  constructor(private http: Http, private cacheService: CacheService, private stateHelper: StateHelper) {}
 
   signinUser() {
-
-    localStorage.removeItem('id_token'); // TODO del
     this.http.post(
-      'http://bull.codixfr.private:8080/v9_be_stable/login', // TODO import in const object
+      `${AppSettings.API_ENDPOINT}login`,
       { userName: 'imx', userPass: 'crx', userLang: 'en' }, // get from UI form
       { headers: contentHeaders }
     )
@@ -26,8 +27,11 @@ export class AuthService {
       .subscribe(
       token => {
         // TODO set token in heaers
-        localStorage.setItem('id_token', token);
-        this.router.navigate([this.router.url]);
+        this.cacheService.set(AppSettings.USER_SESSION_KEY, token, AppSettings.USER_SESSION_EXPIRE_TIME);
+        /**
+         * TODO merge with authorization.component.ts line 19
+         */
+        this.stateHelper.goToProtectedState();
       },
       error => {
         // TODO popup error in modal
@@ -41,12 +45,6 @@ export class AuthService {
   }
 
   isAuthenticated() {
-    const user = localStorage.getItem('id_token');;
-
-    if (user) {
-      return true;
-    } else {
-      return false;
-    }
+    return this.cacheService.exists(AppSettings.USER_SESSION_KEY);
   }
 }

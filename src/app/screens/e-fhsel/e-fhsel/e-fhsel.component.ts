@@ -20,7 +20,7 @@ export class EFhselComponent implements OnInit {
     console.log(this.searchForm);
   }
 
-  loadCarsLazy(event: any) {
+  loadData(event: any) {
     console.log(event);
     this.carService.getCarsSmall()
       .subscribe(
