@@ -141,22 +141,22 @@
             </div>
             <div class="form-group col-md-12">
                 <div class="col-sm-offset-2 col-sm-10">
-                    <button type="submit" class="btn btn-danger">Reset</button>
+                    <button type="submit" class="btn btn-danger" (click)="doReset()">Reset</button>
                     <button type="submit" class="btn btn-success" (click)="doSearch()">Search</button>
                 </div>
             </div>
         </form>
     </div>
+    <div class="panel-footer">
+      <!--scrollHeight="200px" [scrollable]="true"-->
+      <p-dataTable [value]="search" [rows]="10" [paginator]="true" [totalRecords]="100" [lazy]="true" (onLazyLoad)="loadData($event)">
+        <p-column field="caseRef" header="iMX case reference" sortable="true" [filter]="true"></p-column>
+        <p-column field="extCaseRef" header="Case reference" sortable="true" [filter]="true"></p-column>
+        <p-column field="parentCaseId" header="Superior Ref." sortable="true" [filter]="true"></p-column>
+        <p-column field="displayCaseCateg" header="Case category" sortable="true" [filter]="true"></p-column>
+        <p-column field="currency" header="Curr." sortable="true" [filter]="true"></p-column>
+        <p-column field="party1Name" header="Client" sortable="true" [filter]="true"></p-column>
+        <p-column field="party2Name" header="Debtor" sortable="true" [filter]="true"></p-column>
+      </p-dataTable>
+    </div>
 </div>
-
-<!--scrollHeight="200px" [scrollable]="true"-->
-
-<p-dataTable [value]="search" [rows]="10" [paginator]="true" [totalRecords]="100" [lazy]="true" (onLazyLoad)="loadData($event)">
-    <p-column field="caseRef" header="iMX case reference" sortable="true" [filter]="true"></p-column>
-    <p-column field="extCaseRef" header="Case reference" sortable="true"></p-column>
-    <p-column field="parentCaseId" header="Superior Ref." sortable="true"></p-column>
-    <p-column field="displayCaseCateg" header="Case category" sortable="true"></p-column>
-    <p-column field="currency" header="Curr." sortable="true"></p-column>
-    <p-column field="party1Name" header="Client" sortable="true"></p-column>
-    <p-column field="party2Name" header="Debtor" sortable="true"></p-column>
-</p-dataTable>

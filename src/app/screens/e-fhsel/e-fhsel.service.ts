@@ -1,5 +1,4 @@
-import { CacheService } from 'ng2-cache/ng2-cache';
-import { Headers, Http, Response } from '@angular/http';
+import { Http, Response } from '@angular/http';
 import { Injectable } from '@angular/core';
 
 import { AppSettings } from '../../app.settings';
@@ -9,7 +8,7 @@ import 'rxjs/Rx';
 @Injectable()
 export class EFhselService {
 
-  constructor(private http: Http, private cacheService: CacheService) { }
+  constructor(private http: Http) { }
 
   getData(url) {
     return this.http.get(url)
