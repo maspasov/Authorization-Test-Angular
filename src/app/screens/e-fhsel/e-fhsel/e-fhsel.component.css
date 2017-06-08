@@ -1,13 +1,13 @@
-.form-horizontal .control-label{
-  text-align:left;
+.form-horizontal .control-label {
+    text-align: left;
 }
 
 label {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .form-group {
-  margin-bottom: 5px;
+    margin-bottom: 5px;
 }

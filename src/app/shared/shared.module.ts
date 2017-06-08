@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { Http, HttpModule, RequestOptions } from '@angular/http';
 import { CacheLocalStorage, CacheService, CacheStorageAbstract } from 'ng2-cache/ng2-cache';
 
@@ -19,6 +19,7 @@ import { StateHelper } from './services/state.helper';
     CacheService,
     { provide: CacheStorageAbstract, useClass: CacheLocalStorage }
   ],
+  imports: [ReactiveFormsModule, CommonModule],
   declarations: [AuthorizationComponent],
   exports: [
     FormsModule,

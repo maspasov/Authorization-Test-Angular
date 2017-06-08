@@ -1,0 +1,129 @@
+#login-box {
+    width: 450px;
+    margin: 50px auto 0;
+}
+
+.form-group>label.required:after {
+    content: "*";
+    color: red;
+}
+
+.form-group>.error>.error {
+    color: red;
+}
+
+#login-box .panel-heading,
+#login-box .panel-footer {
+    background: #F6F6F6;
+    border: 0;
+}
+
+.form-group label.required:after {
+    content: "*";
+    color: red;
+}
+
+#login-box {
+    width: 100%;
+    margin: 160px auto 0;
+    max-width: 1030px;
+}
+
+#login-box .panel-heading {
+    min-height: 93px;
+    padding-top: 30px;
+    padding-left: 50px;
+}
+
+#login-box label {
+    color: #8E8E8E;
+    font-size: 16px !important;
+}
+
+#login-box .login-btn {
+    max-height: 30px;
+    background: #2E3E4E;
+    color: white;
+    font-size: 17px;
+    line-height: 16px;
+    font-weight: 600;
+    box-shadow: 1px 1px 12px grey;
+}
+
+@media (min-width: 768px) {
+    #login-bg {
+        width: 100%;
+        height: 100%;
+        display: block;
+        background: url("./img/07_08_login_4_BG.png");
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 0;
+    }
+    #login-bg .lower-part {
+        min-height: 60px;
+        width: 100%;
+        background: #2E3E4E;
+        position: absolute;
+        bottom: 0;
+        margin: 0;
+        color: white;
+        text-align: center;
+        padding: 20px;
+    }
+    #login-bg .lower-part span {
+        font-size: 11px;
+        width: 78px;
+        height: 14px;
+        display: inline-block;
+    }
+    #login-bg .lower-part span:last-of-type {
+        background: url("./img/07_08_login_4_11.png") no-repeat center;
+        background-size: 100%;
+    }
+    #login-box {
+        z-index: 1;
+        position: relative;
+        box-shadow: 1px 1px 15px grey;
+    }
+    #login-box .panel-body {
+        padding: 70px 100px 70px 50px;
+        height: 100%;
+        min-height: 344px;
+    }
+    #login-box .form-group .error>.error {
+        color: red;
+        position: absolute;
+        font-size: 11px;
+        text-indent: 3px;
+        font-style: italic;
+    }
+    #login-box .form-control:not(:last-child) {
+        font-family: 'Open Sans';
+        font-size: 14px;
+        border: none;
+        border-bottom: 1px solid lightgray;
+        text-indent: 3px;
+    }
+    #login-box .form-group.clearfix {
+        margin-bottom: 20px;
+    }
+    #login-box .form-control:last-child {
+        border: none;
+        border-bottom: 1px solid lightgray;
+    }
+    #login-box {
+        background: url("./img/07_08_login_4_03.png") no-repeat 100% 0%;
+        height: auto;
+    }
+    #login-box form {
+        width: calc(100% - 424px);
+        box-shadow: none;
+        border-radius: 5px 0 0 5px;
+        min-height: 459px;
+    }
+    #login-box .panel-heading img {
+        display: inline-block;
+    }
+}

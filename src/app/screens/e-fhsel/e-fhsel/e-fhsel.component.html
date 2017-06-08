@@ -1,162 +1,162 @@
 <div class="panel panel-default">
-  <div class="panel-heading">Search cases</div>
-  <div class="panel-body">
-    <form class="form-horizontal">
-      <div class="form-group col-md-6">
-        <label class="col-sm-4 control-label">Case reference *</label>
-        <div class="col-sm-8">
-          <input type="text" class="form-control input-sm" name="extCaseRef" [(ngModel)]="searchForm.extCaseRef">
-        </div>
-      </div>
-      <div class="form-group col-md-6">
-        <label class="col-sm-4 control-label">Involved party case reference *</label>
-        <div class="col-sm-8">
-          <input type="password" class="form-control input-sm" name="clientCaseRef" [(ngModel)]="searchForm.clientCaseRef">
-        </div>
-      </div>
-      <div class="form-group col-md-6">
-        <label class="col-sm-4 control-label">Imx case reference *</label>
-        <div class="col-sm-8">
-          <input type="email" class="form-control input-sm" name="caseRef" [(ngModel)]="searchForm.caseRef">
-        </div>
-      </div>
-      <div class="form-group col-md-6">
-        <label class="col-sm-4 control-label">Case category</label>
-        <div class="col-sm-8">
-          <select  class="form-control input-sm" name="caseCateg" [(ngModel)]="searchForm.caseCateg"></select>
-        </div>
-      </div>
-      <div class="form-group col-md-6">
-        <label class="col-sm-4 control-label">Individual's reference *</label>
-        <div class="col-sm-8">
-          <input type="email" class="form-control input-sm" name="extIndividualRef" [(ngModel)]="searchForm.extIndividualRef">
-        </div>
-      </div>
-      <div class="form-group col-md-6">
-        <label class="col-sm-4 control-label">Internal individual's reference *</label>
-        <div class="col-sm-8">
-          <input type="password" class="form-control input-sm" name="individualRef" [(ngModel)]="searchForm.individualRef">
-        </div>
-      </div>
-      <div class="form-group col-md-6">
-        <label class="col-sm-4 control-label">Legal identifier *</label>
-        <div class="col-sm-8">
-          <input type="email" class="form-control input-sm" name="legalId" [(ngModel)]="searchForm.legalId">
-        </div>
-      </div>
-      <div class="form-group col-md-6">
-        <label class="col-sm-4 control-label">List of involved partie</label>
-        <div class="col-sm-8">
-          <select class="form-control input-sm" name="prtyType" [(ngModel)]="searchForm.prtyType"></select>
-        </div>
-      </div>
-      <div class="form-group col-md-6">
-        <label class="col-sm-4 control-label">Name or corporate name *</label>
-        <div class="col-sm-8">
-          <input type="email" class="form-control input-sm" name="name" [(ngModel)]="searchForm.name">
-        </div>
-      </div>
-      <div class="form-group col-md-6">
-        <label class="col-sm-4 control-label">Name</label>
-        <div class="col-sm-8">
-          <input type="password" class="form-control input-sm" name="firstName" [(ngModel)]="searchForm.firstName">
-        </div>
-      </div>
-      <div class="form-group col-md-6">
-        <label class="col-sm-4 control-label">Date of birth *</label>
-        <div class="col-sm-8">
-          <input type="email" class="form-control input-sm" name="birthDate" [(ngModel)]="searchForm.birthDate">
-        </div>
-      </div>
-      <div class="form-group col-md-6">
-        <label class="col-sm-4 control-label">Telephone *</label>
-        <div class="col-sm-8">
-          <input type="password" class="form-control input-sm" name="phone" [(ngModel)]="searchForm.phone">
-        </div>
-      </div>
-      <div class="form-group col-md-6">
-        <label class="col-sm-4 control-label">Country</label>
-        <div class="col-sm-8">
-          <select class="form-control input-sm" name="country" [(ngModel)]="searchForm.country"></select>
-        </div>
-      </div>
-      <div class="form-group col-md-6">
-        <label class="col-sm-4 control-label">State</label>
-        <div class="col-sm-8">
-          <select class="form-control input-sm" name="state" [(ngModel)]="searchForm.state"></select>
-        </div>
-      </div>
-      <div class="form-group col-md-6">
-        <label class="col-sm-4 control-label">City</label>
-        <div class="col-sm-8">
-          <input type="email" class="form-control input-sm" name="city" [(ngModel)]="searchForm.city">
-        </div>
-      </div>
-      <div class="form-group col-md-6">
-        <label class="col-sm-4 control-label">Post code *</label>
-        <div class="col-sm-8">
-          <input type="password" class="form-control input-sm" name="postCode" [(ngModel)]="searchForm.postCode">
-        </div>
-      </div>
-      <div class="form-group col-md-6">
-        <label class="col-sm-4 control-label">Address</label>
-        <div class="col-sm-8">
-          <input type="email" class="form-control input-sm" name="address" [(ngModel)]="searchForm.address">
-        </div>
-      </div>
-      <div class="form-group col-md-6">
-        <label class="col-sm-4 control-label">Email *</label>
-        <div class="col-sm-8">
-          <input type="password" class="form-control input-sm" name="email" [(ngModel)]="searchForm.email">
-        </div>
-      </div>
-      <div class="form-group col-md-6">
-        <label class="col-sm-4 control-label">BIN/IBAN *</label>
-        <div class="col-sm-8">
-          <input type="email" class="form-control input-sm" name="bankAccNum" [(ngModel)]="searchForm.bankAccNum">
-        </div>
-      </div>
-      <div class="form-group col-md-12">
-        <div class="col-sm-offset-2 col-sm-10">
-          <div class="checkbox">
-            <label>
+    <div class="panel-heading">Search cases</div>
+    <div class="panel-body">
+        <form class="form-horizontal">
+            <div class="form-group col-md-6">
+                <label class="col-sm-4 control-label">Case reference *</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control input-sm" name="extCaseRef" [(ngModel)]="searchForm.extCaseRef">
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                <label class="col-sm-4 control-label">Involved party case reference *</label>
+                <div class="col-sm-8">
+                    <input type="password" class="form-control input-sm" name="clientCaseRef" [(ngModel)]="searchForm.clientCaseRef">
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                <label class="col-sm-4 control-label">Imx case reference *</label>
+                <div class="col-sm-8">
+                    <input type="email" class="form-control input-sm" name="caseRef" [(ngModel)]="searchForm.caseRef">
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                <label class="col-sm-4 control-label">Case category</label>
+                <div class="col-sm-8">
+                    <select class="form-control input-sm" name="caseCateg" [(ngModel)]="searchForm.caseCateg"></select>
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                <label class="col-sm-4 control-label">Individual's reference *</label>
+                <div class="col-sm-8">
+                    <input type="email" class="form-control input-sm" name="extIndividualRef" [(ngModel)]="searchForm.extIndividualRef">
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                <label class="col-sm-4 control-label">Internal individual's reference *</label>
+                <div class="col-sm-8">
+                    <input type="password" class="form-control input-sm" name="individualRef" [(ngModel)]="searchForm.individualRef">
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                <label class="col-sm-4 control-label">Legal identifier *</label>
+                <div class="col-sm-8">
+                    <input type="email" class="form-control input-sm" name="legalId" [(ngModel)]="searchForm.legalId">
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                <label class="col-sm-4 control-label">List of involved partie</label>
+                <div class="col-sm-8">
+                    <select class="form-control input-sm" name="prtyType" [(ngModel)]="searchForm.prtyType"></select>
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                <label class="col-sm-4 control-label">Name or corporate name *</label>
+                <div class="col-sm-8">
+                    <input type="email" class="form-control input-sm" name="name" [(ngModel)]="searchForm.name">
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                <label class="col-sm-4 control-label">Name</label>
+                <div class="col-sm-8">
+                    <input type="password" class="form-control input-sm" name="firstName" [(ngModel)]="searchForm.firstName">
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                <label class="col-sm-4 control-label">Date of birth *</label>
+                <div class="col-sm-8">
+                    <input type="email" class="form-control input-sm" name="birthDate" [(ngModel)]="searchForm.birthDate">
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                <label class="col-sm-4 control-label">Telephone *</label>
+                <div class="col-sm-8">
+                    <input type="password" class="form-control input-sm" name="phone" [(ngModel)]="searchForm.phone">
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                <label class="col-sm-4 control-label">Country</label>
+                <div class="col-sm-8">
+                    <select class="form-control input-sm" name="country" [(ngModel)]="searchForm.country"></select>
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                <label class="col-sm-4 control-label">State</label>
+                <div class="col-sm-8">
+                    <select class="form-control input-sm" name="state" [(ngModel)]="searchForm.state"></select>
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                <label class="col-sm-4 control-label">City</label>
+                <div class="col-sm-8">
+                    <input type="email" class="form-control input-sm" name="city" [(ngModel)]="searchForm.city">
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                <label class="col-sm-4 control-label">Post code *</label>
+                <div class="col-sm-8">
+                    <input type="password" class="form-control input-sm" name="postCode" [(ngModel)]="searchForm.postCode">
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                <label class="col-sm-4 control-label">Address</label>
+                <div class="col-sm-8">
+                    <input type="email" class="form-control input-sm" name="address" [(ngModel)]="searchForm.address">
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                <label class="col-sm-4 control-label">Email *</label>
+                <div class="col-sm-8">
+                    <input type="password" class="form-control input-sm" name="email" [(ngModel)]="searchForm.email">
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                <label class="col-sm-4 control-label">BIN/IBAN *</label>
+                <div class="col-sm-8">
+                    <input type="email" class="form-control input-sm" name="bankAccNum" [(ngModel)]="searchForm.bankAccNum">
+                </div>
+            </div>
+            <div class="form-group col-md-12">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <div class="checkbox">
+                        <label>
               <input type="checkbox" name="searchArchived" [(ngModel)]="searchForm.searchArchived"> Include archived cases
             </label>
-          </div>
-        </div>
-      </div>
-      <div class="form-group col-md-12">
-        <div class="col-sm-offset-2 col-sm-10">
-          <div class="checkbox">
-            <label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group col-md-12">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <div class="checkbox">
+                        <label>
               <input type="checkbox" name="active" [(ngModel)]="searchForm.active"> Active cases
             </label>
-          </div>
-        </div>
-      </div>
-      <div class="form-group col-md-12">
-        <div class="col-sm-offset-2 col-sm-10">
-          * At least one required search criterion needed!
-        </div>
-      </div>
-      <div class="form-group col-md-12">
-        <div class="col-sm-offset-2 col-sm-10">
-          <button type="submit" class="btn btn-danger">Reset</button>
-          <button type="submit" class="btn btn-success" (click)="doSearch()">Search</button>
-        </div>
-      </div>
-    </form>
-  </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group col-md-12">
+                <div class="col-sm-offset-2 col-sm-10">
+                    * At least one required search criterion needed!
+                </div>
+            </div>
+            <div class="form-group col-md-12">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-danger">Reset</button>
+                    <button type="submit" class="btn btn-success" (click)="doSearch()">Search</button>
+                </div>
+            </div>
+        </form>
+    </div>
 </div>
 
 <!--scrollHeight="200px" [scrollable]="true"-->
 
 <p-dataTable [value]="search" [rows]="10" [paginator]="true" [totalRecords]="100" [lazy]="true" (onLazyLoad)="loadData($event)">
-  <p-column field="caseRef" header="iMX case reference" sortable="true" [filter]="true"></p-column>
-  <p-column field="extCaseRef" header="Case reference" sortable="true"></p-column>
-  <p-column field="parentCaseId" header="Superior Ref." sortable="true"></p-column>
-  <p-column field="displayCaseCateg" header="Case category" sortable="true"></p-column>
-  <p-column field="currency" header="Curr." sortable="true"></p-column>
-  <p-column field="party1Name" header="Client" sortable="true"></p-column>
-  <p-column field="party2Name" header="Debtor" sortable="true"></p-column>
+    <p-column field="caseRef" header="iMX case reference" sortable="true" [filter]="true"></p-column>
+    <p-column field="extCaseRef" header="Case reference" sortable="true"></p-column>
+    <p-column field="parentCaseId" header="Superior Ref." sortable="true"></p-column>
+    <p-column field="displayCaseCateg" header="Case category" sortable="true"></p-column>
+    <p-column field="currency" header="Curr." sortable="true"></p-column>
+    <p-column field="party1Name" header="Client" sortable="true"></p-column>
+    <p-column field="party2Name" header="Debtor" sortable="true"></p-column>
 </p-dataTable>

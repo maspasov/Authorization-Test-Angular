@@ -1,3 +1,59 @@
-
-<button type="button" style="width: 100px; background: red; color: white" class="btn btn-large btn-block btn-default" (click)="authService.signinUser()">login</button>
-
+<div id="login-box">
+    <form [formGroup]="myForm" class="panel panel-default" (ngSubmit)="onSignin()">
+        <div class="panel-heading">
+            <img class="center-block" src="data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAAH8AAAAqCAYAAACa/oRXAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA4RpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo3YWUyNjhmMi0zYTJiLTY4NDgtOTRlZi1mZDEyYjQ0ZmNhMGQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NTAzRTVDMzIxNDVDMTFFNzhBQzBCOUYyRDA3QzYxRTMiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NTAzRTVDMzExNDVDMTFFNzhBQzBCOUYyRDA3QzYxRTMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKFdpbmRvd3MpIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6ZTEzYjBmMTUtMGFiOC1mODRiLTgzYmMtYmY5YmVkOTZlY2RjIiBzdFJlZjpkb2N1bWVudElEPSJhZG9iZTpkb2NpZDpwaG90b3Nob3A6YjZkNGIwMGYtMTJlYS0xMWU3LTg4NzIt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"
+                alt="iMX">
+        </div>
+        <div class="panel-body">
+            <div class="form-group clearfix">
+                <label class="required col-sm-4" for="name">
+                    User Name
+                </label>
+                <div class="col-sm-8">
+                    <input formControlName="name" type="name" id="name" #name class="form-control" placeholder="Тype Here">
+                </div>
+            </div>
+            <div class="form-group clearfix">
+                <label class="required col-sm-4" for="password">
+                    Password
+                </label>
+                <div class="col-sm-8">
+                    <input formControlName="password" type="password" id="password" class="form-control" placeholder="Тype Here">
+                </div>
+            </div>
+            <div class="form-group clearfix">
+                <label class="col-sm-4">Language</label>
+                <div class="col-sm-8">
+                    <select class="form-control ng-pristine ng-valid ng-not-empty ng-touched">
+                        <option
+                            label="English"
+                            value="string:en"
+                            selected="selected"
+                        >
+                            English
+                        </option>
+                        <option
+                            label="Français"
+                            value="string:fr"
+                        >
+                            Français
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group clearfix">
+                <div class="col-sm-offset-4 col-sm-8">
+                    <button type="submit" [disabled]="!myForm.valid" class="btn btn-block login-btn">
+                        LOGIN
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<div id="login-bg">
+    <p class="lower-part">
+        <span>Created By</span>
+        <span></span>
+    </p>
+</div>
