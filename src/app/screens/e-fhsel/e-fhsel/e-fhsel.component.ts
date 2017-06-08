@@ -8,10 +8,15 @@ import {EFhselService} from '../e-fhsel.service';
   styleUrls: ['./e-fhsel.component.css']
 })
 export class EFhselComponent implements OnInit {
-  searchForm = {caseRef: "15%"};
+  searchForm = {caseRef: '15%'};
   search: any;
+  mapping: FilterParameters;
 
   constructor(private carService: EFhselService) {
+    this.mapping = {
+      key: 'caseRef',
+      value: 'filterRefdoss'
+    };
   }
 
   ngOnInit() {
@@ -23,10 +28,11 @@ export class EFhselComponent implements OnInit {
   }
 
   loadData(event: any) {
-    console.log(event);
     this.carService.putData(this.searchForm).subscribe(
       (data: any) => {
-        this.carService.getData(`${data.headers.get('location')}?page=1&size=100`).subscribe(
+        let url = new Adaptor(event, data.headers.get('location'), this.mapping).url();
+        console.log(url);
+        this.carService.getData(url).subscribe(
           (result: any) => {
             this.search = result.content;
           },
@@ -35,5 +41,49 @@ export class EFhselComponent implements OnInit {
       },
       (error) => console.log(error)
     );
+  }
+}
+
+interface FilterParameters {
+  key: string;
+  value: string;
+}
+
+class Adaptor {
+  searchString = '';
+
+  constructor(private query: any, private location: string, private filter?: FilterParameters) {
+    this.searchString = location;
+  }
+
+  url() {
+    console.log(this.query);
+    this.paging().mapping().sort();
+    return this.searchString;
+  }
+
+  paging() {
+    this.searchString += `?page=${this.query.first !== 0 ? (this.query.first / this.query.rows) : 1}&size=${100}`;
+    return this;
+  }
+
+  mapping() {
+    console.log(this.filter);
+    if (this.filter) {
+      for (const subkey of Object.keys(this.query.filters)) {
+        this.searchString += `&${this.filter[subkey]}=${this.query.filters[subkey].value}`;
+      }
+    } else {
+      for (const subkey of Object.keys(this.query.filters)) {
+        this.searchString += `&${subkey}=${this.query.filters[subkey].value}`;
+      }
+    }
+    return this;
+  }
+
+  sort() {
+    if (this.query.sortField != null) {
+      this.searchString += (`&sort=${this.query.sortField},${this.query.sortOrder === 1 ? 'asc' : 'desc'}`);
+    }
   }
 }
