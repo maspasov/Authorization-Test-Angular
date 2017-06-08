@@ -22,7 +22,6 @@ export class AuthenticationConnectionBackend extends XHRBackend {
     createConnection(request: Request) {
         const xhrConnection = super.createConnection(request);
         xhrConnection.response = xhrConnection.response.catch((error: Response) => {
-            debugger;
             if ((error.status === 401 || error.status === 403) && (window.location.href.match(/\?/g) || []).length < 2) {
                 console.log('The authentication session expires or the user is not authorised.');
                 this.cacheService.removeAll();
