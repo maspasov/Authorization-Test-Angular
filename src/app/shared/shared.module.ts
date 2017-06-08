@@ -21,7 +21,7 @@ import { AuthenticationConnectionBackend } from './services/authenticated.connec
     { provide: CacheStorageAbstract, useClass: CacheLocalStorage },
     { provide: XHRBackend, useClass: AuthenticationConnectionBackend },
   ],
-  imports: [ReactiveFormsModule, CommonModule],
+  imports: [ReactiveFormsModule, CommonModule, FormsModule],
   declarations: [AuthorizationComponent],
   exports: [
     FormsModule,
