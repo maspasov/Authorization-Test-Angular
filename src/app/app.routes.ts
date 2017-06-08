@@ -1,4 +1,5 @@
 import { Routes, RouterModule, CanActivate } from '@angular/router';
+
 import { AuthorizationComponent } from './shared/authorization/authorization.component';
 import { AuthGuard } from './shared/authorization/authorization.guard';
 

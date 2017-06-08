@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { AuthService } from './authorization.services';
 import { StateHelper } from '../services/state.helper';
 
@@ -14,7 +15,7 @@ export class AuthorizationComponent implements OnInit {
   }
 
   ngOnInit() {
-    if(this.authService.isAuthenticated()) {
+    if (this.authService.isAuthenticated()) {
       this.stateHelper.goToProtectedState();
     }
   }
