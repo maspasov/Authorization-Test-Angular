@@ -9,7 +9,7 @@ import { AuthorizationComponent } from './authorization/authorization.component'
 import { AuthService } from './authorization/authorization.services';
 import { DefaultRequestOptions } from './services/default.request.options';
 import { StateHelper } from './services/state.helper';
-import { AuthenticationConnectionBackend } from './services/authenticated-connection.backend';
+import { AuthenticationConnectionBackend } from './services/authenticated.connection.backend';
 
 @NgModule({
   providers: [
