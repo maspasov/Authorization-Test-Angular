@@ -15,9 +15,10 @@ export class AuthService {
     const loginUrl = `${AppSettings.API_ENDPOINT}/login`;
     const params = { userName: 'imx', userPass: 'crx', userLang: 'en' };
 
-    this.http.post(loginUrl, params).subscribe(
-      res => this.setToken(res.headers.get('x-auth-token'))),
-      error => console.log(error.text());
+    // tslint:disable-next-line:no-unused-expression
+    this.http.post(loginUrl, params)
+    .subscribe(res => this.setToken(res.headers.get('x-auth-token'))),
+    error => console.log(error.text());
   }
 
   private setToken(token: string) {
