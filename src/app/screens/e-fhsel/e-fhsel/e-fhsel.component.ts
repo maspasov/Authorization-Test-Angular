@@ -34,6 +34,7 @@ export class EFhselComponent implements OnInit {
     'party1Name': 'filterClientName',
     'party2Name': 'filterDebtorName',
   };
+  loading: boolean;
 
   constructor(private carService: EFhselService) {
   }
@@ -50,6 +51,7 @@ export class EFhselComponent implements OnInit {
   }
 
   loadData(event: any) {
+    this.loading = true;
     const adaptor = new Adaptor(event, this.mapping, this.searchForm);
     this.carService.putData(adaptor.mapping()).subscribe(
       (data: any) => {
@@ -57,11 +59,18 @@ export class EFhselComponent implements OnInit {
         this.carService.getData(adaptor.url()).subscribe(
           (result: any) => {
             this.search = result.content;
+            this.loading = false;
           },
-          (error) => console.log(error)
+          (error) => {
+            this.loading = false;
+            console.log(error);
+          }
         );
       },
-      (error) => console.log(error)
+      (error) => {
+        this.loading = false;
+        console.log(error);
+      }
     );
   }
 }
