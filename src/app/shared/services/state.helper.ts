@@ -11,6 +11,10 @@ export class StateHelper {
         this.router.navigate([redirectTo]);
     }
 
+    goToDashboard() {
+        this.router.navigate(['/e_fhsel']); // TODO will be '/e_dashboard'
+    }
+
     goToLoginState() {
         this.router.navigate(['/login']);
     }

@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { Http, HttpModule, RequestOptions, XHRBackend } from '@angular/http';
 import { CacheLocalStorage, CacheService, CacheStorageAbstract } from 'ng2-cache/ng2-cache';
 
+import { LoginGuard } from './authorization/login.guard';
 import { AuthGuard } from './authorization/authorization.guard';
 import { AuthorizationComponent } from './authorization/authorization.component';
 import { AuthService } from './authorization/authorization.services';
@@ -15,6 +16,7 @@ import { AuthenticationConnectionBackend } from './services/authenticated.connec
   providers: [
     StateHelper,
     AuthGuard,
+    LoginGuard,
     AuthService,
     { provide: RequestOptions, useClass: DefaultRequestOptions },
     CacheService,
