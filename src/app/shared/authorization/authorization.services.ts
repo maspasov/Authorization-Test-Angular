@@ -1,6 +1,6 @@
 import { Http } from '@angular/http';
 import { Injectable } from '@angular/core';
-import { CacheService, CacheStoragesEnum } from 'ng2-cache/ng2-cache';
+import { CacheService } from 'ng2-cache/ng2-cache';
 
 import { AppSettings } from '../../app.settings';
 import { StateHelper } from '../services/state.helper';

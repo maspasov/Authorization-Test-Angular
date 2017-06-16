@@ -36,7 +36,7 @@ export class EFhselComponent implements OnInit {
   };
   loading: boolean;
 
-  constructor(private carService: EFhselService) {
+  constructor(private eFhselService: EFhselService) {
   }
 
   ngOnInit() {
@@ -51,12 +51,12 @@ export class EFhselComponent implements OnInit {
   }
 
   loadData(event: any) {
-    this.loading = true;
     const adaptor = new Adaptor(event, this.mapping, this.searchForm);
-    this.carService.putData(adaptor.mapping()).subscribe(
+    this.eFhselService.putData(adaptor.mapping()).subscribe(
       (data: any) => {
+        this.loading = true;
         adaptor.setLocation(data.headers.get('location'));
-        this.carService.getData(adaptor.url()).subscribe(
+        this.eFhselService.getData(adaptor.url()).subscribe(
           (result: any) => {
             this.search = result.content;
             this.loading = false;
